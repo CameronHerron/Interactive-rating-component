@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <title>Frontend Mentor | Interactive rating component</title>
+
+</head>
+
+<body>
+  <div id="unsubmitted">
+    <img class="circle" src="/images/icon-star.svg" alt="star">
+    <!-- Rating state start -->
+    <h1 class="head">How did we do?</h1>
+    <p class="info">Please let us know how we did with your support request. All feedback is appreciated
+      to help us improve our offering!
+    </p>
+    <div class="star-box">
+      <span onclick="changeRating(1)" class="circle 1">1</span>
+      <span onclick="changeRating(2)" class="circle 2">2</span>
+      <span onclick="changeRating(3)" class="circle 3">3</span>
+      <span onclick="changeRating(4)" class="circle 4">4</span>
+      <span onclick="changeRating(5)" class="circle 5">5</span>
+    </div>
+
+    <div onclick="submit()" class="submit">SUBMIT</div>
+  </div>
+  <script>
+    let rating;
+    function changeRating(x) {
+      this.rating = x;
+      document.getElementById("val").innerText = this.rating;
+    }
+    function submit() {
+      if (this.rating != null) {
+        document.getElementById("unsubmitted").style.display = "none";
+        document.getElementById("submitted").style.display = "block";
+      }
+
+    }
+  </script>
+
+  <!-- Rating state end -->
+
+  <!-- Thank you state start -->
+  <div id="submitted">
+    <img src="images/illustration-thank-you.svg" alt="illustration of a credit card and receipt on a phone">
+    <div class="selected">You selected <span id="val"></span> out of 5</div>
+
+    <h1 class="head">Thank you!</h1>
+    <p class="info">
+      We appreciate you taking the time to give a rating. If you ever need more support,
+      don't hesitate to get in touch!
+    </p>
+  </div>
+  <!-- Thank you state end -->
+
+</body>
+
+</html>
