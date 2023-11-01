@@ -8,6 +8,9 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
 
   <title>Frontend Mentor | Interactive rating component</title>
 
@@ -15,18 +18,20 @@
 
 <body>
   <div id="unsubmitted">
-    <img class="circle" src="/images/icon-star.svg" alt="star">
+    <div class="circle">
+      <img src="/images/icon-star.svg" alt="star">
+    </div>
     <!-- Rating state start -->
     <h1 class="head">How did we do?</h1>
     <p class="info">Please let us know how we did with your support request. All feedback is appreciated
       to help us improve our offering!
     </p>
-    <div class="star-box">
-      <span onclick="changeRating(1)" class="circle 1">1</span>
-      <span onclick="changeRating(2)" class="circle 2">2</span>
-      <span onclick="changeRating(3)" class="circle 3">3</span>
-      <span onclick="changeRating(4)" class="circle 4">4</span>
-      <span onclick="changeRating(5)" class="circle 5">5</span>
+    <div class="circle-box">
+      <div onclick="changeRating(1)" id="1" class="circle num">1</div>
+      <div onclick="changeRating(2)" id="2" class="circle num">2</div>
+      <div onclick="changeRating(3)" id="3" class="circle num">3</div>
+      <div onclick="changeRating(4)" id="4" class="circle num">4</div>
+      <div onclick="changeRating(5)" id="5" class="circle num">5</div>
     </div>
 
     <div onclick="submit()" class="submit">SUBMIT</div>
@@ -36,13 +41,24 @@
     function changeRating(x) {
       this.rating = x;
       document.getElementById("val").innerText = this.rating;
+      resetCircles();
+      let id = "" + x;
+      document.getElementById(id).style.backgroundColor = "hsl(217, 12%, 63%)";
+      document.getElementById(id).style.color = "hsl(0, 0%, 100%)";
     }
+
     function submit() {
       if (this.rating != null) {
         document.getElementById("unsubmitted").style.display = "none";
-        document.getElementById("submitted").style.display = "block";
+        document.getElementById("submitted").style.display = "flex";
       }
-
+    }
+    function resetCircles(){
+      let elements = document.getElementsByClassName("num");
+      for(let i = 0; i < elements.length; i++){
+        elements[i].style.backgroundColor = "hsl(216, 12%, 34%)";
+        elements[i].style.color = "hsl(217, 12%, 63%)";
+      }
     }
   </script>
 

@@ -3,11 +3,86 @@ body{
     justify-content: center;
     align-items: center;
     background-color: hsl(216, 12%, 8%);
+    height: 100vh;
+    font-family: 'Overpass', sans-serif;
 }
 #submitted, #unsubmitted{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
     background-color: hsl(213, 19%, 18%);
+    padding: 2em;
+    border-radius: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    height: 50%;
 }
 
 #submitted{
     display:none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#submitted .head{
+    margin-top:1em;
+    margin-bottom: 0;
+}
+
+.head{
+    color: hsl(0, 0%, 100%);
+}
+.info{
+    color: hsl(217, 12%, 63%);
+}
+
+.circle-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 1.3em;
+}
+.circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(216, 12%, 34%);
+    color: hsl(217, 12%, 63%);
+    border-radius: 100px;
+    height: 2.5em;
+    width: 2.5em;
+}
+.num:hover{
+    background-color: hsl(25, 97%, 53%);
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+}
+.submit{
+    display: flex;
+    justify-content: center;
+    background-color: hsl(25, 97%, 53%);
+    color: hsl(0, 0%, 100%);
+    padding: .8em;
+    border-radius: 2em;
+}
+.submit:hover{
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(25, 97%, 53%);
+    cursor: pointer;
+}
+
+.selected{
+    background-color: hsl(216, 12%, 34%);
+    color: hsl(25, 97%, 53%);
+    padding: .7em;
+    margin-top: 1em;
+    border-radius: 2em;
+}
+
+@media (min-width: 601px){
+    #submitted, #unsubmitted{
+        width: 30%;
+    }
 }
